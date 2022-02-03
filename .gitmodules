@@ -1,0 +1,6 @@
+[submodule "GraphQL-with-TypeScript"]
+	path = GraphQL-with-TypeScript
+	url = git@github.com:vockalimo/GraphQL-with-TypeScript.git
+[submodule "imagesearch/imagesearch"]
+	path = imagesearch/imagesearch
+	url = git@github.com:vockalimo/imagesearch.git
