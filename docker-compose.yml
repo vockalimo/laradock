@@ -2075,6 +2075,11 @@ services:
       build: ./imagesearch
       ports:
         - "${IMAGESEARCH_PORT}:5000"
+      environment:
+        - MYSQL_HOST=${IMAGESEARCH_MYSQL_HOST}
+        - MYSQL_USER=${IMAGESEARCH_MYSQL_USER}
+        - MYSQL_PWD=${IMAGESEARCH_MYSQL_PWD}
+        - MYSQL_DB=${IMAGESEARCH_MYSQL_DB}
       networks:
         - frontend
         - backend  
@@ -2145,3 +2150,16 @@ services:
         interval: 30s
         timeout: 20s
         retries: 3
+##### apisix ################################################  
+    apisix:
+      build:
+        context: ./apisix
+        args:
+          - APISIX_VERSION=${APISIX_VERSION}
+      volumes:
+          - ${DATA_PATH_HOST}/apisix/apisix_log:/usr/local/apisix/logs
+      depends_on:
+        - "etcd"     
+      networks:
+        - frontend
+        - backend              
