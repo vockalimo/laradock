@@ -1013,6 +1013,8 @@ services:
       volumes:
         - elasticsearch:/usr/share/elasticsearch/data
       environment:
+        - xpack.security.enabled=false
+        - xpack.security.enrollment.enabled=true
         - cluster.name=laradock-cluster
         - node.name=laradock-node
         - bootstrap.memory_lock=true
@@ -2163,3 +2165,17 @@ services:
       networks:
         - frontend
         - backend              
+
+
+##### attu ################################################
+    attu:
+      image: zilliz/attu:latest
+      networks:
+        - frontend
+        - backend
+      ports:
+        - "3000:3000"
+#      environment:
+#        HOST_URL: 192.168.1.213
+#        MILVUS_URL: 127.0.0.1
+    
