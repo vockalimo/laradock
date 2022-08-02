@@ -1012,11 +1012,13 @@ services:
 
 ### MeiliSearch ##########################################
     meilisearch:
-      image: getmeili/meilisearch:latest
+      image: getmeili/meilisearch:v0.28.1
       volumes:
         - ${DATA_PATH_HOST}/meilisearch:/data.ms
       ports:
         - "${MEILISEARCH_HOST_PORT}:7700"
+      environment:
+        - MEILI_MASTER_KEY=mmk
       networks:
         - frontend
         - backend
