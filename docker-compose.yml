@@ -1024,7 +1024,7 @@ services:
       ports:
         - "${MEILISEARCH_HOST_PORT}:7700"
       environment:
-        - MEILI_MASTER_KEY=mmk
+        - MEILI_MASTER_KEY=w9j0
       networks:
         - frontend
         - backend
